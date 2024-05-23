@@ -28,7 +28,7 @@ df_jan2023_filt = df_jan2023[(df_jan2023.duration >= 1) & (df_jan2023.duration <
 perc = 100 - ((len(df_jan2023.axes[0]) - len(df_jan2023_filt.axes[0]))/len(df_jan2023.axes[0]) *100)
 print('Q3: ', perc)
 
-df_feb2023_filt = df_feb2023[(df_jan2023.duration >= 1) & (df_feb2023.duration <= 60)]
+df_feb2023_filt = df_feb2023[(df_feb2023.duration >= 1) & (df_feb2023.duration <= 60)]
 
 ######Question 4
 categorical = ['PULocationID', 'DOLocationID']
@@ -63,13 +63,6 @@ print('Q5: ', mean_squared_error(y_train, y_pred, squared=False))
 
 ######Question 6
 lr = LinearRegression()
-lr.fit(X_train, y_train)
-
-y_pred = lr.predict(X_val)
-
-print('Q6: ', mean_squared_error(y_val, y_pred, squared=False))
-
-lr = Lasso(0.01)
 lr.fit(X_train, y_train)
 
 y_pred = lr.predict(X_val)
